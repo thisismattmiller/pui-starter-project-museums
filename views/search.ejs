@@ -1,0 +1,317 @@
+<!-- This is a static file -->
+<!-- served from your routes in server.js -->
+
+<!-- You might want to try something fancier: -->
+<!-- html/nunjucks docs: https://mozilla.github.io/nunjucks/ -->
+<!-- pug: https://pugjs.org/ -->
+<!-- haml: http://haml.info/ -->
+<!-- hbs(handlebars): http://handlebarsjs.com/ -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <meta name="description" content="A cool thing made with Glitch">
+    <link id="favicon" rel="icon" href="https://glitch.com/edit/favicon-app.ico" type="image/x-icon">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- import the webpage's stylesheet -->
+    <link rel="stylesheet" href="/style.css">
+    
+    <!-- import the webpage's client-side javascript file -->
+    <script src="/client.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <h1>
+        Search Results Page
+      </h1>
+    </header>
+    
+<form action="/search" method="get">
+  <div>
+    <label for="searchin">Search Field:</label>
+    
+    <select name="searchin" id="searchin" value="">
+      <option value="all">All</option>
+      <option value="title">Title</option>
+
+
+      
+    </select>
+    
+    <label for="orderby">Order by:</label>
+
+    <select name="orderby" id="orderby" value="">
+      <option value="title">Title</option>
+
+    </select>
+    
+  </div>
+  <div>
+    <label for="searchval">Search for what?</label>
+    <input name="searchval" id="searchval" value="">
+  </div>
+  <div>
+    <button>Search</button>
+  </div>
+</form>
+    
+    
+    <hr/>
+    
+
+    <main>
+      <% results.forEach(function(r) { %>
+      
+
+      <div><%= r.id%></div>
+      <div><%= r.address%></div>
+      <div><%= r.description%></div>
+      <div><%= r.featurecount%></div>
+      <div><%= r.fee%></div>
+      <div><%= r.langtitude%></div>
+      <div><%= r.latitude%></div>
+      <div><%= r.lengthofvisit%></div>
+      <div><%= r.museumname%></div>
+      <div><%= r.phonenum%></div>
+      <div><%= r.rank%></div>
+      <div><%= r.rating%></div>
+      <div><%= r.reviewcount%></div>
+      <div><%= r.totalthingstodo%></div>
+      <div><%= r.country%></div>
+      <div><%= r.state%></div>
+      <div><%= r.rankpercentage%></div>
+      <div><%= r.ancient_ruins%></div>
+      <div><%= r.architectural_buildings%></div>
+      <div><%= r.arenas_stadiums%></div>
+      <div><%= r.art_galleries%></div>
+      <div><%= r.art_museums%></div>
+      <div><%= r.auto_race_tracks%></div>
+      <div><%= r.ballets%></div>
+      <div><%= r.battlefields%></div>
+      <div><%= r.biking_trails%></div>
+      <div><%= r.bodies_of_water%></div>
+      <div><%= r.bridges%></div>
+      <div><%= r.castles%></div>
+      <div><%= r.cemeteries%></div>
+      <div><%= r.childrens_museums%></div>
+      <div><%= r.city_tours%></div>
+      <div><%= r.classes_workshops%></div>
+      <div><%= r.coffeehouses%></div>
+      <div><%= r.concerts_shows%></div>
+      <div><%= r.cultural_tours%></div>
+      <div><%= r.educational_sites%></div>
+      <div><%= r.factory_tours%></div>
+      <div><%= r.flea_street_markets%></div>
+      <div><%= r.food_drink%></div>
+      <div><%= r.fun_games%></div>
+      <div><%= r.gardens%></div>
+      <div><%= r.geologic_formations%></div>
+      <div><%= r.gift_specialty_shops%></div>
+      <div><%= r.government_buildings%></div>
+      <div><%= r.historic_sites%></div>
+      <div><%= r.historic_walking_areas%></div>
+      <div><%= r.historical_heritage_tours%></div>
+      <div><%= r.history_museums%></div>
+      <div><%= r.islands%></div>
+      <div><%= r.lessons_workshops%></div>
+      <div><%= r.libraries%></div>
+      <div><%= r.lighthouses%></div>
+      <div><%= r.literary_art_music_tours%></div>
+      <div><%= r.lookouts%></div>
+      <div><%= r.military_bases_facilities%></div>
+      <div><%= r.military_museums%></div>
+      <div><%= r.mines%></div>
+      <div><%= r.monuments_statues%></div>
+      <div><%= r.movie_theaters%></div>
+      <div><%= r.museums%></div>
+      <div><%= r.national_parks%></div>
+      <div><%= r.natural_history_museums%></div>
+      <div><%= r.nature_parks%></div>
+      <div><%= r.nature_wildlife_areas%></div>
+      <div><%= r.neighborhoods%></div>
+      <div><%= r.night_tours%></div>
+      <div><%= r.nightlife%></div>
+      <div><%= r.observation_decks_towers%></div>
+      <div><%= r.observatories_planetariums%></div>
+      <div><%= r.other_fun_games%></div>
+      <div><%= r.other_outdoor_activities%></div>
+      <div><%= r.outdoor_activities%></div>
+      <div><%= r.piers_boardwalks%></div>
+      <div><%= r.playgrounds%></div>
+      <div><%= r.points_of_interest_landmarks%></div>
+      <div><%= r.private_tours%></div>
+      <div><%= r.sacred_religious_sites%></div>
+      <div><%= r.scenic_railroads%></div>
+      <div><%= r.scenic_walking_areas%></div>
+      <div><%= r.science_museums%></div>
+      <div><%= r.selfguided_tours_rentals%></div>
+      <div><%= r.ships%></div>
+      <div><%= r.shopping%></div>
+      <div><%= r.sights_landmarks%></div>
+      <div><%= r.specialty_museums%></div>
+      <div><%= r.sports_complexes%></div>
+      <div><%= r.state_parks%></div>
+      <div><%= r.theaters%></div>
+      <div><%= r.tours%></div>
+      <div><%= r.tramways%></div>
+      <div><%= r.transportation%></div>
+      <div><%= r.traveler_resources%></div>
+      <div><%= r.valleys%></div>
+      <div><%= r.visitor_centers%></div>
+      <div><%= r.volcanos%></div>
+      <div><%= r.walking_tours%></div>
+      <div><%= r.wineries_vineyards%></div>
+      <div><%= r.zipline_aerial_adventure_parks%></div>
+      <div><%= r.zoos_aquariums%></div>
+      <div><%= r.on_display%></div>
+      <div><%= r.gift_shop%></div>
+      <div><%= r.rainy_day%></div>
+      <div><%= r.couple_of_hours%></div>
+      <div><%= r.all_ages%></div>
+      <div><%= r.special_exhibits%></div>
+      <div><%= r.few_hours%></div>
+      <div><%= r.two_hours%></div>
+      <div><%= r.exhibits%></div>
+      <div><%= r.well_worth_a_visit%></div>
+      <div><%= r.permanent_collection%></div>
+      <div><%= r.worth_a_visit%></div>
+      <div><%= r.free_admission%></div>
+      <div><%= r.audio_guide%></div>
+      <div><%= r.beautiful_building%></div>
+      <div><%= r.great_collection%></div>
+      <div><%= r.information%></div>
+      <div><%= r.interesting_exhibits%></div>
+      <div><%= r.entrance_fee%></div>
+      <div><%= r.great_for_kids%></div>
+      <div><%= r.interactive_exhibits%></div>
+      <div><%= r.hands_on_activities%></div>
+      <div><%= r.great_exhibits%></div>
+      <div><%= r.great_place_to_visit%></div>
+      <div><%= r.interactive_displays%></div>
+      <div><%= r.guided_tour%></div>
+      <div><%= r.well_worth_the_visit%></div>
+      <div><%= r.whole_family%></div>
+      <div><%= r.kids_and_adults%></div>
+      <div><%= r.traveling_exhibits%></div>
+      <div><%= r.his_life%></div>
+      <div><%= r.local_history%></div>
+      <div><%= r.amazing_collection%></div>
+      <div><%= r.free_entry%></div>
+      <div><%= r.worth_the_trip%></div>
+      <div><%= r.great_history%></div>
+      <div><%= r.civil_war%></div>
+      <div><%= r.take_your_time%></div>
+      <div><%= r.nice_collection%></div>
+      <div><%= r.interesting_place%></div>
+      <div><%= r.great_museum%></div>
+      <div><%= r.for_sale%></div>
+      <div><%= r.art_lovers%></div>
+      <div><%= r.artifacts%></div>
+      <div><%= r.van_gogh%></div>
+      <div><%= r.audio_tour%></div>
+      <div><%= r.history%></div>
+      <div><%= r.galleries%></div>
+      <div><%= r.works_of_art%></div>
+      <div><%= r.natural_history%></div>
+      <div><%= r.self_guided_tour%></div>
+      <div><%= r.private_collection%></div>
+      <div><%= r.own_pace%></div>
+      <div><%= r.sculpture_garden%></div>
+      <div><%= r.moving_experience%></div>
+      <div><%= r.three_hours%></div>
+      <div><%= r.lots_of_history%></div>
+      <div><%= r.modern_art%></div>
+      <div><%= r.history_buff%></div>
+      <div><%= r.admission%></div>
+      <div><%= r.small_museum%></div>
+      <div><%= r.step_back_in_time%></div>
+      <div><%= r.worth_a_stop%></div>
+      <div><%= r.short_film%></div>
+      <div><%= r.stuffed_animals%></div>
+      <div><%= r.walk_around%></div>
+      <div><%= r.entry_fee%></div>
+      <div><%= r.great_displays%></div>
+      <div><%= r.world_war%></div>
+      <div><%= r.scavenger_hunt%></div>
+      <div><%= r.across_the_street%></div>
+      <div><%= r.museums2%></div>
+      <div><%= r.top_floor%></div>
+      <div><%= r.a_lot_of_fun%></div>
+      <div><%= r.history_lesson%></div>
+      <div><%= r.large_collection%></div>
+      <div><%= r.eye_opening%></div>
+      <div><%= r.american_history%></div>
+      <div><%= r.interesting_artifacts%></div>
+      <div><%= r.early_days%></div>
+      <div><%= r.rotating_exhibits%></div>
+      <div><%= r.extensive_collection%></div>
+      <div><%= r.three_floors%></div>
+      <div><%= r.we_spent_hours%></div>
+      <div><%= r.displays%></div>
+      <div><%= r.changing_exhibits%></div>
+      <div><%= r.second_floor%></div>
+      <div><%= r.collection%></div>
+      <div><%= r.old_masters%></div>
+      <div><%= r.great_place_to_learn%></div>
+      <div><%= r.learn_something%></div>
+      <div><%= r.special_exhibitions%></div>
+      <div><%= r.suggested_donation%></div>
+      <div><%= r.old_west%></div>
+      <div><%= r.chronological_order%></div>
+      <div><%= r.enjoyed_our_visit%></div>
+      <div><%= r.take_pictures%></div>
+      <div><%= r.third_floor%></div>
+      <div><%= r.the_lower_level%></div>
+      <div><%= r.life_size%></div>
+      <div><%= r.families_count%></div>
+      <div><%= r.couples_count%></div>
+      <div><%= r.solo_count%></div>
+      <div><%= r.business_count%></div>
+      <div><%= r.friends_count%></div>
+      <div><%= r.preciserating%></div>
+      <div><%= r.quote_pol_var%></div>
+      <div><%= r.quote_pol_mean%></div>
+      <div><%= r.quote_pol_max%></div>
+      <div><%= r.quote_pol_min%></div>
+      <div><%= r.quote_sub_var%></div>
+      <div><%= r.quote_sub_mean%></div>
+      <div><%= r.quote_sub_max%></div>
+      <div><%= r.quote_sub_min%></div>
+      <div><%= r.review_pol_var%></div>
+      <div><%= r.review_pol_mean%></div>
+      <div><%= r.review_pol_max%></div>
+      <div><%= r.review_pol_min%></div>
+      <div><%= r.review_sub_var%></div>
+      <div><%= r.review_sub_mean%></div>
+      <div><%= r.review_sub_max%></div>
+      <div><%= r.review_sub_min%></div>
+      <div><%= r.descri_pol%></div>
+      <div><%= r.descri_sub%></div>
+      <div><%=r.reviews%></div>
+      
+      <% r.reviews.forEach(function(r) { %>
+        <p>
+          <%=r%>
+        </p>
+        <hr>
+      <% }) %>  
+    
+    <% }) %>  
+
+    </main>
+
+    <footer>
+      Made with <a href="https://glitch.com">Glitch</a>!
+    </footer>
+
+    <!-- include the Glitch button to show what the webpage is about and
+          to make it easier for folks to view source and remix -->
+    <div class="glitchButton" style="position:fixed;top:20px;right:20px;"></div>
+    <script src="https://button.glitch.me/button.js"></script>
+
+  </body>
+</html>

@@ -1,0 +1,114 @@
+<!-- This is a static file -->
+<!-- served from your routes in server.js -->
+
+<!-- You might want to try something fancier: -->
+<!-- html/nunjucks docs: https://mozilla.github.io/nunjucks/ -->
+<!-- pug: https://pugjs.org/ -->
+<!-- haml: http://haml.info/ -->
+<!-- hbs(handlebars): http://handlebarsjs.com/ -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <meta name="description" content="A cool thing made with Glitch">
+    <link id="favicon" rel="icon" href="https://glitch.com/edit/favicon-app.ico" type="image/x-icon">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+ <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
+   integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+   crossorigin=""/>
+    
+    <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
+   integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
+   crossorigin=""></script>
+    
+    <!-- import the webpage's stylesheet -->
+    <link rel="stylesheet" href="/style.css">
+    
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    
+    <!-- import the webpage's client-side javascript file -->
+    <script src="/client.js" defer></script>
+  </head>
+  <body>
+    <h1>
+      hello
+    </h1>
+    
+    <input type="checkbox" id="history_museums_checkbox" >history_museums
+ 
+    
+    <div id="mapid" style="height:500px">
+      
+    </div>
+    
+    
+    <script>
+    
+    var theData = [];
+    var checkbox_history_museums = false;  
+
+    var mymap = L.map('mapid').setView([39.644563, -96.356825], 3);
+    L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+      attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+      tileSize: 512,
+      maxZoom: 18,
+      zoomOffset: -1,
+      id: 'mapbox/streets-v11',
+      accessToken: 'pk.eyJ1IjoidGhpc2lzbWF0dG1pbGxlciIsImEiOiJjazJsMTEyaG4wMjlwM25xZXVtd2g4OHJmIn0.HuO03SisXsE5EsSfH_Yxrw'
+    }).addTo(mymap);
+   
+    var markersLayer = new L.LayerGroup(); // NOTE: Layer is created here!
+
+      
+    markersLayer.addTo(mymap);
+
+      
+    $.getJSON( "https://pui-museums.glitch.me/search?searchin=all&orderby=title&searchval=&format=json", function( data ) {
+      theData = data
+      refreshMap()
+
+    });
+      
+    var refreshMap = function(){
+      
+      markersLayer.clearLayers();
+      
+      theData.forEach((museum)=>{
+        console.log(museum.langtitude)
+        console.log(museum)
+
+        if (checkbox_history_museums == true){
+          if (museum.history_museums == 1){
+             var marker = L.marker([museum.latitude, museum.langtitude]);
+             markersLayer.addLayer(marker);
+             marker.bindPopup("<b><center>" + museum.museumname + "!<center></b>").openPopup();            
+          }
+          
+        }
+        
+
+      })      
+    }  
+      
+      
+    $('#history_museums_checkbox').change(function() {
+        if(this.checked) {
+          checkbox_history_museums = true;
+        }else{
+          checkbox_history_museums = false;
+        }
+        refreshMap()
+    });      
+    
+    
+    
+    
+    </script>
+    
+    
+    
+  </body>
+</html>
